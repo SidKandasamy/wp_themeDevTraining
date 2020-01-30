@@ -20,8 +20,10 @@ add_action('wp_enqueue_scripts', 'load_stylesheets');
 function loadjs()
 {
 
-    wp_register_scripts('customjs', get_template_directory_url() . '/js/scripts.js', true);
-    wp_enqueue_scripts('customjs');
+    wp_register_script('customjs', get_template_directory_uri() . '/js/scripts.js', '', 1,true );
+    wp_enqueue_script('customjs');
+
+    //dont forget its get_template_directory_ur(i)
 
     //https://developer.wordpress.org/reference/functions/wp_register_script/
 
