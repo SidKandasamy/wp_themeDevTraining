@@ -15,3 +15,16 @@ function load_stylesheets()
 
 }
 add_action('wp_enqueue_scripts', 'load_stylesheets');
+
+
+function loadjs()
+{
+
+    wp_register_scripts('customjs', get_template_directory_url() . '/js/scripts.js', true);
+    wp_enqueue_scripts('customjs');
+
+    //https://developer.wordpress.org/reference/functions/wp_register_script/
+
+    //javacript implementation
+}
+add_action('wp_enqueue_scripts', 'loadjs');
