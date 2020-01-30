@@ -17,6 +17,18 @@ function load_stylesheets()
 add_action('wp_enqueue_scripts', 'load_stylesheets');
 
 
+function includeJQuery()
+{
+    wp_deregister_script('jquery'); //just to keep jquery clean first, remove all jquery before implementing
+
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery.js', '', 1, true);
+
+    add_action('wp_enqueue_scripts', 'jquery');
+}
+
+add_action('wp_enqueue_scripts', 'includeJQuery');
+
+
 function loadjs()
 {
 
@@ -30,3 +42,4 @@ function loadjs()
     //javacript implementation
 }
 add_action('wp_enqueue_scripts', 'loadjs');
+
